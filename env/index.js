@@ -1,7 +1,11 @@
-var path = require("path")
-var Modules = require("./Modules")
+const path = require("path")
+const Modules = require("./Modules")
+const Plugins = require("./Plugins")
+const Reslove = require("./Reslove")
+
 console.log(path.resolve(__dirname, "../dist"),'-----------------------------------------------------------------------')
-var config = {
+const config = {
+    mode:"production",
     entry: {
         app:path.resolve(__dirname, "../router/index.jsx")
     },
@@ -9,6 +13,8 @@ var config = {
         path: path.resolve(__dirname, "../dist"),
         filename: "[name].js"
     },
-    module: Modules
+    module: Modules,
+    plugins: Plugins,
+    resolve: Reslove
 }
 module.exports = config;
