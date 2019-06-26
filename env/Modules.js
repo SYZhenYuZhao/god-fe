@@ -1,4 +1,6 @@
-var Modules = {
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const path = require("path")
+const Modules = {
     rules:[
         {
             test: /\.jsx|js$/,
@@ -10,14 +12,21 @@ var Modules = {
             ]
         },
         {
-            test: /\.css$/,
-            exclude: /node_modules/,
-            use: ["style-loader","css-loader"]
-        },
-        {
-            test: /\.less$/,
-            exclude: /node_modules/,
-            use: ["style-loader", "css-loader", "less-loader"]
+            test: /\.css|less$/,
+            use: [
+                MiniCssExtractPlugin.loader,
+                { 
+                    loader:"css-loader",
+                    options:{
+                        modules: {
+                            mode: 'local',
+                            localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                            context: path.resolve(__dirname, 'src'),
+                            hashPrefix: 'my-custom-hash',
+                        },
+                    }
+                }, 
+                "less-loader"]
         }
     ]
 }
