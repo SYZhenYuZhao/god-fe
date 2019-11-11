@@ -4,16 +4,15 @@ const Plugins = require("./Plugins")
 const Reslove = require("./Reslove")
 const devServer = require("./devServer")
 const env = process.env.NODE_ENV
-console.log(path.resolve(__dirname, "../dist"),'-----------------------------------------------------------------------')
 const config = {
-    mode: env,
+    mode: 'development',
     entry: {
-        app:path.resolve(__dirname, "../router/index.jsx"),
-        vender:[
+        app: path.resolve(__dirname, "../index.js"),
+        vender: [
             "react"
         ]
     },
-    output:{
+    output: {
         path: path.resolve(__dirname, "../dist"),
         filename: "[name].js"
     },

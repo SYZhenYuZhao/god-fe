@@ -30,8 +30,10 @@
     "webpack-dev-server": "^3.7.1"
   },
   "dependencies": {
+    "antd": "^3.25.1",
     "less": "^3.9.0",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.1.2"
   }
 }
